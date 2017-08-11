@@ -1,0 +1,24 @@
+version: "3"
+services:
+  nginx:
+    container_name: mynginx
+    build: 
+      context: ./nginx
+    image: nginx:1.8.1
+    volumes:
+      - ./nginx/volumes/ssl:/etc/nginx/ssl
+      - ./nginx/volumes/conf.d:/etc/nginx/conf.d
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: always
+  ghost:
+    container_name: myblog
+    build: 
+      context: ./ghost
+      args:
+        domain: your-domain-name
+    image: ghost:myghost
+    volumes:
+      - ./ghost/volumes/content:/var/lib/ghost/content
+    restart: always
