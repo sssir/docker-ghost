@@ -7,6 +7,7 @@ Nginx: 1.8.1
 Ghost: 1.5.2
 
 ## 使用
+* 将`docker-compose.yml`中的`your-domain-name`改为你的域名
 * 将SSL证书放到`nginx/volumes/conf.d/ssl`
 * 根据你自己的需求修改`nginx/volumes/conf.d/ghost.conf`(将`your-domain-name`替换为你的域名)
 * `docker-compose up -d`启动服务
